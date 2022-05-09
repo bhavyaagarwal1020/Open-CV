@@ -1,0 +1,141 @@
+import numpy as np
+
+# 1. row vector (arr1)
+arr1=np.array([1,2,3])
+print(arr1,"\n")
+#Output
+# [1 2 3]
+
+# 2.column vector (arr2)
+arr2=np.array([[1],[2],[3]])
+print(arr2,"\n")
+#Output
+# [[1]
+#  [2]
+#  [3]]
+
+# 3. 2-D vector (arr3)
+arr3=np.array([(1,2,3),(4,5,6)])
+print(arr3,"\n")
+#Output
+# [[1 2 3]
+#  [4 5 6]]
+
+# 4. declaration of 3D vector(arr4)
+arr4 = np.array([[(1,2,3),(4,5,6)],[(1,2,3),(4,5,6)]])
+print(arr4,"\n")
+# output:
+# [[[1 2 3]
+#   [4 5 6]]
+#
+#   [[1 2 3]
+#    [4 5 6]]]
+
+# 5.  declaration of zero vector of specific data-types //uint8 = usigned integer of 8 bits size(arr5)
+arr5=np.zeros((3,3),dtype="int")
+print(arr5,"\n")
+#Output
+#  [[0 0 0]
+#   [0 0 0]
+#   [0 0 0]]
+
+# 6. declaration of ones vector
+arr6=np.ones((3,3),dtype="int")
+print(arr6,"\n")
+#output
+#[[1 1 1]
+# [1 1 1]
+# [1 1 1]]
+
+#7. declaration of parameter's vector(arr7) // here 3 rows 5 columns  and value 5
+arr7 = np.full((3,5),5)
+print(arr7,"\n")
+# output: [[5 5 5 5 5]
+#          [5 5 5 5 5]
+#          [5 5 5 5 5]]
+
+
+# 8. declaration of identity vector(arr8)
+arr8 = np.eye(3, dtype="int")
+print(arr8,"\n")
+# output: [[1 0 0]
+#          [0 1 0]
+#          [0 0 1]]
+
+
+# 9.declaration of vector with 2 gaps between 0-9(arr9)
+arr9=np.arange(0,10,2)
+print(arr9,"\n")
+#output
+# [0 2 4 6 8]
+
+
+# 10. declaration of vector with 9 values between 0-2 inclusively(arr10)
+arr10=np.linspace(0,2,9)
+print(arr10,"\n")
+#output
+#[0.   0.25 0.5  0.75 1.   1.25 1.5  1.75 2.  ]
+
+
+# 11.declaration of random vactor between 0-1 without scaler multiplication //255 multipliend here
+arr11=np.random.rand(2,3)*255 #impurities (black dots,gaussian blur etc)
+print(arr11,"\n")
+#output
+#  [[174.41389885 108.23390284 154.8066664 ]
+#  [ 98.81851047  37.84656226  92.4609589 ]]
+
+# 12.declaration of random integer vector of size(x,y) between 0-4(arr12)
+arr12=np.random.randint(5,size=(3,3)) # values from 0 to excluding 5.
+print(arr12,"\n")
+#output
+# [[3 1 1]
+#  [2 2 4]
+#  [2 4 3]]
+
+
+# 13.finds the dimensions of the vector(arr13)
+arr13 = np.array([(1,2,3),(4,5,6)])
+print(arr13.shape,"\n")
+# output: (2, 3)
+
+
+# 14. finds the size of vector
+arr14 = np.array([(1,2,3),(4,5,6)])
+print(arr14.size,"\n")
+# output: (6)
+
+
+# 15.finds out the data type of the vector(arr15)
+arr15 = np.array([(1,2,3),(4,5,6)])
+print(arr15.dtype,"\n")
+# output: int32
+
+
+# 16.changes the data type of a vector(arr16)
+arr16 = arr15.astype(float)
+print(arr16.dtype,"\n")
+# output:  float64
+
+
+# 17.elementry opprations can be done directly like add,subtract,multiply,division(arr17)
+arr17 = arr15+arr14
+print(arr17,"\n")
+# output:
+#[[ 2  4  6]
+# [ 8 10 12]]
+
+
+# 18.scalar operatons can be performed.
+arr18 = arr17+20
+print(arr18,"\n")
+# output:
+# [[22 24 26]
+#  [28 30 32]]
+
+# 19.finds the minimum element
+print(arr18.min(),"\n")
+# output: 22
+
+# 20.finds the maximum element
+print(arr18.max(),"\n")
+# output: 32
