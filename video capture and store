@@ -23,6 +23,7 @@ if(open):
      ret,frame=cap.read()
      if(ret==True):
          cv2.imshow('computer vision',frame)
+         out.write(frame)
          if(cv2.waitKey(1)==27):  #27 is ASCII value of ESC i.e. escape
              break
 
