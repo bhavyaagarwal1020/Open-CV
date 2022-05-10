@@ -1,8 +1,12 @@
 import cv2
+import numpy as np
 
-image=cv2.imread('harry.jpg',cv2.IMREAD_UNCHANGED)
-print(image.shape)
-print(image)
-cv2.imshow('Computer Vision',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image = cv2.imread('img2.jpeg') # Reading Image
+# print(image.shape)
+win_name='computer vision' # window_Name
+
+cv2.imshow(win_name,image) # Display Image
+
+cv2.waitKey(0)  
+
+cv2.destroyAllWindows() # Destroy all windows
