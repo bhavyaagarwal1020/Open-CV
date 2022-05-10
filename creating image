@@ -5,5 +5,5 @@ image=np.zeros((500,500))
 image[:,:] = 100 #ever row ,every column
 image=image[:,:]+10
 
-image[100:200, 200:300] = 255
+image[100:200, 200:300] = 255 #white pixels.
 cv2.imwrite('sample.jpg', image) #(sample.jpg = filename.extension)
