@@ -1,0 +1,23 @@
+import cv2
+import numpy as np
+
+#creating a canvas 500x500 (three channels)
+canvas=np.zeros((500,500,3))
+
+#drawing a line
+cv2.line(canvas,(0,0),(100,100),(0,0,255),3,cv2.LINE_4)
+
+#drawing a rectangle
+cv2.rectangle(canvas,(200,200),(250,270),(0,255,0),-2) #-ve thickness means rectangle will be filled
+
+#drawing a circle
+cv2.circle(canvas,(280,280),10,(255,0,0),3)
+
+#drawing a arrowed line
+cv2.arrowedLine(canvas,(350,350,),(400,400),(255,255,255),tipLength=0.6)
+
+#showing canvas
+cv2.imshow('Computer Vision',canvas)
+cv2.waitKey(0)
+#if(cv2.waitKey(2)==27): #if ESC
+ #   break
