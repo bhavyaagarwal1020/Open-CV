@@ -1,0 +1,51 @@
+import cv2
+
+#instance of video capture
+cap = cv2.VideoCapture('sampvid.mp4') # allow taking feed from camera,video,online IP camera
+
+# properties of video
+
+#counting number of frames to reverse the video, index will start from last index.
+frames=cap.get(cv2.CAP_PROP_FRAME_COUNT)
+
+#frames per second in video.
+fps=cap.get(cv2.CAP_PROP_FPS)
+
+#height and width of video
+height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+
+fourcc=cv2.VideoWriter_fourcc(*'MJPG') #initiating output writer for video
+#scaling video by 0.5
+out=cv2.VideoWriter('reversevid.avi',fourcc,fps,(int(width*0.5),int(height*0.5)))
+print("FRAMES ARE {}".format(fps))
+
+#get the last index of frame
+frame_index=frames-1;
+
+#check if the video instance is ready
+if(cap.isOpened()):
+    while(frame_index !=0): #reading till end of video
+        cap.set(cv2.CAP_PROP_POS_FRAMES,frame_index)
+        ret,frame=cap.read()
+
+        #resize thr frame
+        frame=cv2.resize(frame,(int(width*0.5),int(height*0.5)))
+
+        #showing reversed video
+        cv2.imshow('computer vision',frame)
+        cv2.waitKey(1)
+
+        #writing the reversed video
+        out.write(frame)
+        #decrement the frame index
+        frame_index=frame_index-1
+
+        #print the progress
+        if(frame_index%100==0):
+            print(frame_index)
+            if(cv2.waitKey(2)==27): #if ESC
+             break
+out.release()
+cap.release()
+cv2.destroyAllWindows()
