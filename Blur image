@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+original_image = cv2.imread('img2.jpeg',cv2.IMREAD_UNCHANGED) # Reading Image
+kernell = np.ones((5, 5)) / 25
+
+blur_image = cv2.filter2D(original_image, -1, kernell) # -1 is destination depth
+
+cv2.imshow('ORIGINAL IMAGE', original_image)
+cv2.imshow('BLUR IMAGE', blur_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
