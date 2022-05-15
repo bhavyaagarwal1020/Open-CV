@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+
+original_image = cv2.imread('img2.jpeg', cv2.IMREAD_UNCHANGED) # Reading Image
+
+#we can use this in face recognition and we have a blurry video , we can
+#apply this kernel to increase the precision of model.
+
+kernell = np.array([[0, -1, 0], [-1, 6, -1], [0, -1, 0]])
+
+sharp_image = cv2.filter2D(original_image, -1, kernell)
+cv2.imshow('ORIGINAL IMAGE', original_image)
+cv2.imshow('SHARPEN IMAGE',sharp_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
